@@ -28,7 +28,7 @@ function incrementarPorUno(array) {
   // Tu código:
 
   var newarr = []
-  for (var i = 0; i < array.length; i++){
+  for (let i = 0; i < array.length; i++){
     var suma = array[i] + 1;
     newarr.push(suma)
   }
@@ -89,6 +89,8 @@ function agregarNumeros(numeros) {
   // Tu código:
   var suma = 0
   for (var i = 0; i < numeros.length; i++){
+    // tambien podria ser 
+    // suma += numeros[i]
     suma = suma + numeros[i]
   }
   return suma
@@ -111,7 +113,7 @@ function numeroMasGrande(numeros) {
   // Tu código:
 
   mayor = numeros[0];
-  for (var i = 1; i < numeros.length; i ++){
+  for (let i = 1; i < numeros.length; i ++){
     if (mayor < numeros[i]){
       mayor = numeros[i]
     }
@@ -144,9 +146,9 @@ function cuentoElementos(arreglo){
   //Escribe tu código aquí
 
   var contador = 0;
-  for (var i = 0; i < arreglo.length; i++){
+  for (let i = 0; i < arreglo.length; i++){
     if (arreglo[i] > 18){
-      contador = contador + 1;
+      contador ++;
     }
   }
   return contador;
@@ -158,7 +160,11 @@ function diaDeLaSemana(numeroDeDia) {
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
-  
+  if (numeroDeDia === 1 || numeroDeDia === 7){
+    return 'Es fin de semana';
+  } else {
+    return 'Es dia Laboral';
+  }
 } 
 
 
@@ -166,7 +172,13 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  
+  var string = n.toString()
+
+  if (string[0] == 9){
+return true;
+  } else {
+return false;
+  }
 }
 
 
@@ -174,7 +186,13 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
-  
+  var aux = arreglo[0];
+  for (let i = 1; i < arreglo.length ; i++) {
+    if (aux !== arreglo[i]){
+      return false;
+    }
+  }
+  return true;
 } 
 
 
@@ -183,6 +201,16 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  var aux = [] 
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 'Enero' || array[i] === 'Marzo' || array[i] === 'Noviembre'){
+    aux.push(array[i]);
+    }
+  }
+  if (aux.length < 3){
+    return 'No se encontraron los meses pedidos'
+  }
+  return aux;
 }
 
 
@@ -190,6 +218,14 @@ function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
+  var aux = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > 100){
+      aux.push(array[i]);
+    }
+  }
+  return aux;
 }
 
 
@@ -201,6 +237,16 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
+
+  var array = [];
+  var suma = numero;
+
+  for (let i = 0; i < 10; i++) {
+   suma = suma + 2;
+   if (suma === i){return "Se interrumpió la ejecución"}
+   array.push(suma);
+  }
+  return array;
 }
 
 
